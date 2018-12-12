@@ -1,1 +1,3 @@
 # TwoPointRegulator
+
+For Philip Merkel
