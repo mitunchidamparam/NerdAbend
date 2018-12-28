@@ -20929,8 +20929,8 @@ unwanted messages, thereby reducing the host MCUs overhead. The MCP2515 interfac
 <attribute name="NAME" x="-44.45" y="17.145" size="1.778" layer="95" rot="R180"/>
 <attribute name="VALUE" x="-44.45" y="60.96" size="1.778" layer="96" rot="R180"/>
 </instance>
-<instance part="GND4" gate="1" x="-124.46" y="15.24" smashed="yes">
-<attribute name="VALUE" x="-127" y="12.7" size="1.778" layer="96"/>
+<instance part="GND4" gate="1" x="-134.62" y="15.24" smashed="yes">
+<attribute name="VALUE" x="-137.16" y="12.7" size="1.778" layer="96"/>
 </instance>
 <instance part="IC1" gate="A1" x="-55.88" y="137.16" smashed="yes">
 <attribute name="NAME" x="-63.5" y="142.875" size="1.778" layer="95"/>
@@ -21333,12 +21333,10 @@ unwanted messages, thereby reducing the host MCUs overhead. The MCP2515 interfac
 <pinref part="U$1" gate="G$1" pin="GND"/>
 <pinref part="JP1" gate="A" pin="14"/>
 <wire x1="-93.98" y1="22.86" x2="-109.22" y2="22.86" width="0.1524" layer="91"/>
-<wire x1="-109.22" y1="22.86" x2="-124.46" y2="22.86" width="0.1524" layer="91"/>
+<wire x1="-109.22" y1="22.86" x2="-134.62" y2="22.86" width="0.1524" layer="91"/>
 <junction x="-109.22" y="22.86"/>
-<wire x1="-129.54" y1="22.86" x2="-124.46" y2="22.86" width="0.1524" layer="91"/>
-<junction x="-124.46" y="22.86"/>
 <pinref part="GND4" gate="1" pin="GND"/>
-<wire x1="-124.46" y1="17.78" x2="-124.46" y2="22.86" width="0.1524" layer="91"/>
+<wire x1="-134.62" y1="17.78" x2="-134.62" y2="22.86" width="0.1524" layer="91"/>
 </segment>
 <segment>
 <wire x1="-99.06" y1="137.16" x2="-99.06" y2="132.08" width="0.1524" layer="91"/>
@@ -21695,15 +21693,6 @@ unwanted messages, thereby reducing the host MCUs overhead. The MCP2515 interfac
 <junction x="-109.22" y="27.94"/>
 </segment>
 </net>
-<net name="N$24" class="0">
-<segment>
-<pinref part="U$1" gate="G$1" pin="RAW"/>
-<pinref part="JP1" gate="A" pin="15"/>
-<wire x1="-93.98" y1="20.32" x2="-109.22" y2="20.32" width="0.1524" layer="91"/>
-<wire x1="-109.22" y1="20.32" x2="-119.38" y2="20.32" width="0.1524" layer="91"/>
-<junction x="-109.22" y="20.32"/>
-</segment>
-</net>
 <net name="PWRIN" class="1">
 <segment>
 <wire x1="-88.9" y1="137.16" x2="-68.58" y2="137.16" width="0.1524" layer="91"/>
@@ -21714,6 +21703,15 @@ unwanted messages, thereby reducing the host MCUs overhead. The MCP2515 interfac
 <wire x1="-68.58" y1="137.16" x2="-66.04" y2="137.16" width="0.1524" layer="91"/>
 <wire x1="-68.58" y1="132.08" x2="-68.58" y2="137.16" width="0.1524" layer="91"/>
 <junction x="-68.58" y="137.16"/>
+<label x="-73.66" y="137.16" size="1.778" layer="95" rot="R90" xref="yes"/>
+</segment>
+<segment>
+<pinref part="U$1" gate="G$1" pin="RAW"/>
+<pinref part="JP1" gate="A" pin="15"/>
+<wire x1="-93.98" y1="20.32" x2="-109.22" y2="20.32" width="0.1524" layer="91"/>
+<wire x1="-109.22" y1="20.32" x2="-119.38" y2="20.32" width="0.1524" layer="91"/>
+<junction x="-109.22" y="20.32"/>
+<label x="-119.38" y="20.32" size="1.778" layer="95" rot="R180" xref="yes"/>
 </segment>
 </net>
 <net name="IO13" class="0">
