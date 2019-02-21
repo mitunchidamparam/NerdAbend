@@ -25,7 +25,7 @@
  */
 
 #include <SPI.h>
-#include <epd2in7.h>
+#include "epd2in7.h"
 #include "imagedata.h"
 #include <epdpaint.h>
 
@@ -97,4 +97,3 @@ void loop() {
   // put your main code here, to run repeatedly:
 
 }
-
