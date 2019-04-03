@@ -32,10 +32,21 @@
 #define COLORED     0
 #define UNCOLORED   1
 
+String _DatatoShow; 
+
+int programm = 1;
+
+bool firsttime = true;
+
+  unsigned char image[1500];
+  Paint paint(image, 400, 28);
+
+    Epd epd;
+
 void setup() {
   // put your setup code here, to run once:
   Serial.begin(9600);
-  Epd epd;
+
 
   if (epd.Init() != 0) {
     Serial.print("e-Paper init failed");
@@ -51,9 +62,9 @@ void setup() {
     * update a partial display several times.
     * 1 byte = 8 pixels, therefore you have to set 8*N pixels at a time.
     */
-  //unsigned char image[1500];
-  //Paint paint(image, 400, 28);    //width should be the multiple of 8 
-/*
+  unsigned char image[1500];
+  Paint paint(image, 400, 28);    //width should be the multiple of 8 
+
   paint.Clear(UNCOLORED);
   paint.DrawStringAt(0, 0, "e-Paper Demo", &Font24, COLORED);
   epd.SetPartialWindowBlack(paint.GetImage(), 100, 40, paint.GetWidth(), paint.GetHeight());
@@ -82,19 +93,62 @@ void setup() {
   paint.Clear(UNCOLORED);
   paint.DrawFilledCircle(32, 32, 30, COLORED);
   epd.SetPartialWindowRed(paint.GetImage(), 200, 200, paint.GetWidth(), paint.GetHeight());
-*/
+
   /* This displays the data from the SRAM in e-Paper module */
-  //epd.DisplayFrame();
+  epd.DisplayFrame();
 
   /* This displays an image */
-  epd.DisplayFrame(IMAGE_BLACK, IMAGE_RED);
+ // epd.DisplayFrame(IMAGE_BLACK, IMAGE_RED);
 
   /* Deep sleep */
   epd.Sleep();
 }
 
 void loop() {
-  // put your main code here, to run repeatedly:
+  
+ while( Serial.available())
+ {
+   _DatatoShow = Serial.readString();
+   programm = 0;
+  // Serial.println("Recieved Data");
+   
+ }
 
+switch (programm)
+{
+  case 0:
+  {
+      //Serial.println("changing text");
+    char* current =_DatatoShow.c_str();
+    //Serial.println(current);
+
+  if(firsttime)
+  {
+      if (epd.Init() != 0)
+      {
+        Serial.print("e-Paper init failed");
+        return;
+      } 
+   firsttime = false;
+  } 
+
+  epd.ClearFrame();
+
+  unsigned char image[1500];
+  Paint paint(image, 400, 28);    //width should be the multiple of 8 
+
+  paint.Clear(COLORED);
+  paint.DrawStringAt(100, 2, current, &Font24, UNCOLORED);
+  epd.SetPartialWindowRed(paint.GetImage(), 0, 64, paint.GetWidth(), paint.GetHeight());
+  epd.DisplayFrame();
+  // epd.Sleep();
+  programm = 1;
+   //Serial.println("Done");
+  break;
+  }
+  
+  case 1:
+    break;
 }
 
+}

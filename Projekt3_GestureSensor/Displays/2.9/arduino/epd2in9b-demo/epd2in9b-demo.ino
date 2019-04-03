@@ -1,4 +1,3 @@
-
 /**
  *  @filename   :   epd2in9b-demo.ino
  *  @brief      :   2.9inch e-paper display (B) demo
@@ -52,30 +51,15 @@ void setup() {
     * update a partial display several times.
     * 1 byte = 8 pixels, therefore you have to set 8*N pixels at a time.
     */
-
-    
-
-    
   unsigned char image[1024];
   Paint paint(image, 128, 18);    //width should be the multiple of 8 
-
-//paint.SetRotate(1);
-
-  delay(1000);
-
 
   paint.Clear(UNCOLORED);
   paint.DrawStringAt(0, 0, "e-Paper Demo", &Font12, COLORED);
   epd.SetPartialWindowBlack(paint.GetImage(), 24, 32, paint.GetWidth(), paint.GetHeight());
 
-  
-
-delay(5000);
-Serial.println("Demo");
-
-
   paint.Clear(COLORED);
-  paint.DrawStringAt(2, 2, "Hello Steffen", &Font12, UNCOLORED);
+  paint.DrawStringAt(2, 2, "Hello world", &Font16, UNCOLORED);
   epd.SetPartialWindowRed(paint.GetImage(), 0, 64, paint.GetWidth(), paint.GetHeight());
   
   paint.SetWidth(64);
@@ -100,14 +84,8 @@ Serial.println("Demo");
   epd.SetPartialWindowRed(paint.GetImage(), 64, 200, paint.GetWidth(), paint.GetHeight());
 
   /* This displays the data from the SRAM in e-Paper module */
-  //epd.DisplayFrame();
+  epd.DisplayFrame();
 
-  
-
- delay(1000);
-
-epd.DisplayFrame();
-  
   /* This displays an image */
  // epd.DisplayFrame(IMAGE_BLACK, IMAGE_RED);
 
@@ -115,8 +93,7 @@ epd.DisplayFrame();
   epd.Sleep();
 }
 
-void loop() 
-{
+void loop() {
   // put your main code here, to run repeatedly:
 
 }

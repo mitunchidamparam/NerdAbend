@@ -1,3 +1,5 @@
+
+
 /**
  *  @filename   :   epd4in2-demo.ino
  *  @brief      :   4.2inch e-paper display demo
@@ -29,8 +31,8 @@
 #include "imagedata.h"
 #include "epdpaint.h"
 #include <stdint.h>
-
-
+#include <elapsedMillis.h>
+#include <digitalWriteFast.h>
 
 #define COLORED     0
 #define UNCOLORED   1
@@ -39,10 +41,13 @@
 void setup() {
   // put your setup code here, to run once:
   Serial.begin(9600);
+  Serial.println("Starting Test");
+
   
   Epd epd;
 
-  if (epd.Init() != 0) {
+  if (epd.Init() != 0) 
+  {
     Serial.print("e-Paper init failed");
     return;
   }
@@ -52,8 +57,8 @@ void setup() {
 /* This displays the data from the SRAM in e-Paper module */
   epd.DisplayFrame();
 
-delay(20);
-Serial.println("Display cleared");
+  delay(20);
+  Serial.println("Display cleared");
 
   /**
     * Due to RAM not enough in Arduino UNO, a frame buffer is not allowed.
@@ -141,10 +146,10 @@ phase=phase+0.2;
 
 for(int i = 0; i<2;i++)
 {
-  paint.Clear(UNCOLORED);
-epd.SetPartialWindow(paint.GetImage(), 0, 0, paint.GetWidth(), paint.GetHeight(),2);
-  epd.DisplayFrame();
-  delay(10);
+    paint.Clear(UNCOLORED);
+    epd.SetPartialWindow(paint.GetImage(), 0, 0, paint.GetWidth(), paint.GetHeight(),2);
+    epd.DisplayFrame();
+    delay(10);
 }
 
 
@@ -162,4 +167,3 @@ void loop() {
   // put your main code here, to run repeatedly:
 
 }
-
