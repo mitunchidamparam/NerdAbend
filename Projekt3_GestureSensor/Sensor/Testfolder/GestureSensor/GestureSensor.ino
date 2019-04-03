@@ -82,6 +82,12 @@ void setup() {
   } else {
     Serial.println(F("Something went wrong during gesture sensor init!"));
   }
+
+  if(apds.setLEDBoost(1))
+  {
+    
+  }
+  
 }
 
 void loop() {
