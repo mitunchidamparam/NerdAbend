@@ -62,12 +62,13 @@ void setup() {
   epd.DisplayFrame();
   epd.ClearFrameMemory(0xFF);   // bit set = white, bit reset = black
   epd.DisplayFrame();
-
+ /**
   paint.SetRotate(ROTATE_0);
   paint.SetWidth(200);
-  paint.SetHeight(24);
+  paint.SetHeight(24); */
 
   /* For simplicity, the arguments are explicit numerical coordinates */
+  /**
   paint.Clear(COLORED);
   paint.DrawStringAt(30, 4, "Hello world!", &Font16, UNCOLORED);
   epd.SetFrameMemory(paint.GetImage(), 0, 10, paint.GetWidth(), paint.GetHeight());
@@ -111,12 +112,14 @@ void setup() {
    *  i.e. the next action of SetFrameMemory will set the other memory area
    *  therefore you have to set the frame memory and refresh the display twice.
    */
+
+   /*
   epd.SetFrameMemory(IMAGE_DATA);
   epd.DisplayFrame();
   epd.SetFrameMemory(IMAGE_DATA);
   epd.DisplayFrame();
 
-  time_start_ms = millis();
+  time_start_ms = millis(); */
 }
 
 void loop() {
